@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAREWELL WEBSITE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== TRANSISI 1: POLAROID COLLAGE (muncul setelah loading, sebelum halaman judul) ===== -->
+<div id="polaroid-transition" class="transition-overlay">
+  <div class="polaroid-collage" id="polaroid-collage"></div>
+  <div class="polaroid-transition-skip">tap to continue ✦</div>
+</div>
+
+<!-- ===== TRANSISI 2: ENVELOPE RAIN (muncul setelah halaman judul, sebelum amplop) ===== -->
+<div id="envelope-rain-transition" class="transition-overlay">
+  <div class="env-rain-container" id="env-rain-container"></div>
+</div>
+
+<!-- ===== TRANSISI 3: FLOWER RAIN (muncul setelah surat, sebelum buket) ===== -->
+<div id="flower-rain-transition" class="transition-overlay">
+  <div class="flower-rain-container" id="flower-rain-container"></div>
+</div>
+
+<!-- ===== TRANSISI 5: VINYL INTRO (muncul sebelum halaman lagu) ===== -->
+<div id="vinyl-transition" class="transition-overlay">
+  <canvas class="vinyl-love-canvas" id="vinyl-love-canvas"></canvas>
+  <div class="vinyl-center">
+    <div class="vinyl-disc" id="vinyl-disc">
+      <div class="vinyl-grooves"></div>
+      <div class="vinyl-label">
+        <div class="vinyl-label-dot"></div>
+        <p class="vinyl-label-title">SONGS FOR YOU</p>
+        <p class="vinyl-label-sub">✦ a playlist ✦</p>
+      </div>
+      <div class="vinyl-shine"></div>
+    </div>
+    <div class="vinyl-arm"></div>
+  </div>
+</div>
+
+<!-- ===== HALAMAN 1: SLIDER FOTO ===== -->
+<div id="loading-screen">
+
+  <!-- Background love canvas -->
+  <canvas class="love-bg-canvas" id="love-bg-canvas"></canvas>
+
+  <!-- PHASE 1: Love splash + loading bar -->
+  <div id="love-splash">
+    <div class="love-icon-big">♡</div>
+    <p class="love-loading-label">loading something for you...</p>
+    <div class="love-bar-wrap">
+      <div class="love-bar-track">
+        <div class="love-bar-fill" id="love-bar-fill"></div>
+      </div>
+      <p class="love-bar-pct" id="love-bar-pct">0%</p>
+    </div>
+  </div>
+
+  <!-- PHASE 2: Slider foto + judul (muncul setelah loading selesai) -->
+  <div id="loading-main">
+
+   <div class="slider-viewport">
+    <div class="slider-track" id="slider-track">
+
+      <div class="slide-item" data-index="0">
+        <div class="slide-frame">
+          <img src="images/posda1.jpg" alt="Foto 1">
+          <div class="slide-ph">
+            <div class="slide-ph-icon">🌸</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-item" data-index="1">
+        <div class="slide-frame">
+          <img src="images/posda2.jpg" alt="Foto 2">
+          <div class="slide-ph">
+            <div class="slide-ph-icon">📷</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-item" data-index="2">
+        <div class="slide-frame">
+          <img src="images/posda3.jpg" alt="Foto 3">
+          <div class="slide-ph">
+            <div class="slide-ph-icon">🌺</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-item" data-index="3">
+        <div class="slide-frame">
+          <img src="images/posda4.jpg" alt="Foto 4">
+          <div class="slide-ph">
+            <div class="slide-ph-icon">✨</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-item" data-index="4">
+        <div class="slide-frame">
+          <img src="images/posda5.jpg" alt="Foto 5">
+          <div class="slide-ph">
+            <div class="slide-ph-icon">🌷</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-item" data-index="5">
+        <div class="slide-frame">
+          <img src="images/posda6.jpg" alt="Foto 6">
+          <div class="slide-ph">
+            <div class="slide-ph-icon">💫</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <div class="slider-arrows">
+      <button class="slider-arrow" onclick="sliderMove(-1)">&#8592;</button>
+      <div class="slider-dots" id="slider-dots"></div>
+      <button class="slider-arrow" onclick="sliderMove(1)">&#8594;</button>
+    </div>
+
+
+    <p class="loading-tagline">I have a small gift for you before our journey ends.</p>
+    <h1 class="loading-title">FAREWELL<br>PRESENT</h1>
+    <p class="loading-title-sub">✦ &nbsp; for Jelita Rachmana &nbsp; ✦</p>
+
+
+    <div class="loading-button-wrap">
+      <button class="next-button" onclick="proceedToEnvelope()">Next →</button>
+    </div>
+
+
+  </div><!-- end loading-main -->
+
+
+</div><!-- end loading-screen -->
+
+<!-- ===== HALAMAN 2: AMPLOP ===== -->
+<div id="main-content">
+
+  <section id="envelope-section" style="display:none;">
+    <div class="envelope-section-inner">
+
+      <p class="envelope-section-title">First of all, ada sesuatu yang ingin aku sampaikan..</p>
+
+      <div class="envelope-wrap" id="envelope-wrap" onclick="openEnvelope()" title="Klik untuk membuka surat">
+
+        <svg class="envelope-svg-wrap" viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="envBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FDEEF5"/>
+              <stop offset="100%" stop-color="#F2D0E2"/>
+            </linearGradient>
+            <linearGradient id="envFlapGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#E8C0D4"/>
+              <stop offset="100%" stop-color="#D4A0BC"/>
+            </linearGradient>
+            <linearGradient id="envSideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F0C8DC"/>
+              <stop offset="100%" stop-color="#DDA8C4"/>
+            </linearGradient>
+            <filter id="envShadow">
+              <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(140,60,100,0.18)"/>
+            </filter>
+          </defs>
+
+          <!-- envelope body -->
+          <rect x="10" y="40" width="320" height="172" rx="10" ry="10" fill="url(#envBodyGrad)" filter="url(#envShadow)"/>
+
+          <!-- bottom fold triangle -->
+          <polygon points="10,212 170,130 330,212" fill="#E8C0D4"/>
+
+          <!-- left fold -->
+          <polygon points="10,40 10,212 130,126" fill="url(#envSideGrad)" opacity="0.7"/>
+
+          <!-- right fold -->
+          <polygon points="330,40 330,212 210,126" fill="url(#envSideGrad)" opacity="0.7"/>
+
+          <!-- seal (wax) -->
+          <circle cx="170" cy="162" r="18" fill="#C4607F" opacity="0.92"/>
+          <circle cx="170" cy="162" r="12" fill="#9B3A5A" opacity="0.7"/>
+          <text x="170" y="168" text-anchor="middle" font-size="12" fill="rgba(255,235,245,0.9)">✦</text>
+
+          <!-- top flap — opens UPWARD -->
+          <g class="env-flap" id="env-flap">
+            <polygon points="10,40 330,40 170,138" fill="url(#envFlapGrad)"/>
+            <polyline points="10,40 170,138 330,40" fill="none" stroke="rgba(180,100,140,0.25)" stroke-width="1"/>
+          </g>
+
+          <!-- envelope border -->
+          <rect x="10" y="40" width="320" height="172" rx="10" ry="10" fill="none" stroke="rgba(180,100,140,0.3)" stroke-width="1.5"/>
+
+          <!-- decorative corner flourishes -->
+          <text x="22" y="60" font-size="10" fill="rgba(180,100,140,0.4)">✦</text>
+          <text x="305" y="60" font-size="10" fill="rgba(180,100,140,0.4)">✦</text>
+          <text x="22" y="205" font-size="10" fill="rgba(180,100,140,0.4)">✦</text>
+          <text x="305" y="205" font-size="10" fill="rgba(180,100,140,0.4)">✦</text>
+        </svg>
+
+      </div><!-- end envelope-wrap -->
+
+      <p class="env-hint" id="env-hint">✦ klik amplop untuk membuka ✦</p>
+
+      <button class="env-next-btn" id="env-next-btn" onclick="proceedToGift()">Lanjutkan →</button>
+
+    </div><!-- end envelope-section-inner -->
+
+    <!-- Blur overlay -->
+    <div class="env-blur-overlay" id="env-blur-overlay"></div>
+
+    <!-- Letter floating center -->
+    <div class="env-letter" id="env-letter">
+      <div class="env-letter-seal">✦ ✦ ✦</div>
+      <p class="env-letter-text">Hai, Jelita Rachmana.
+
+Karena besok adalah hari Laporan Pertanggungjawaban POSDA 25/26, aku ingin berikan sedikit hadiah buat kamu. Meskipun cuma virtual, i hope you like it!
+Terima kasih buat kenangan indahnya selama dua periode di POSDA 25.
+I apologize with all of my heart, if i ever makes mistakes all this time.
+
+Wish you all the best in your future endeavors.
+
+                                            — with love, Aghra Balakosa</p>
+    </div>
+  </section>
+
+  <!-- ===== GIFT SECTION ===== -->
+  <section id="gift-section" style="display:none;">
+    <div class="gift-wrapper">
+
+      <div class="gift-box" id="gift-box" onclick="openGift()" title="Klik untuk membuka hadiah">
+        <svg class="gift-svg" width="220" height="240" viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="110" width="180" height="120" rx="8" fill="#6B2D46"/>
+          <rect x="20" y="110" width="180" height="120" rx="8" fill="url(#boxGrad)"/>
+          <rect x="97" y="110" width="26" height="120" rx="0" fill="#C4607F" opacity="0.7"/>
+          <rect x="20" y="155" width="180" height="22" rx="0" fill="#C4607F" opacity="0.7"/>
+
+          <g class="gift-lid" id="gift-lid">
+            <rect x="10" y="80" width="200" height="40" rx="8" fill="#8B3A5A"/>
+            <rect x="10" y="80" width="200" height="40" rx="8" fill="url(#lidGrad)"/>
+            <rect x="97" y="80" width="26" height="40" fill="#D98EA5" opacity="0.8"/>
+            <ellipse cx="110" cy="80" rx="34" ry="12" fill="#C4607F"/>
+            <ellipse cx="83" cy="66" rx="22" ry="13" fill="#D98EA5" transform="rotate(-18 83 66)"/>
+            <ellipse cx="137" cy="66" rx="22" ry="13" fill="#D98EA5" transform="rotate(18 137 66)"/>
+            <ellipse cx="110" cy="74" rx="12" ry="9" fill="#E8B0C4"/>
+            <ellipse cx="80" cy="64" rx="10" ry="6" fill="#F0C8D8" opacity="0.6" transform="rotate(-18 80 64)"/>
+            <ellipse cx="140" cy="64" rx="10" ry="6" fill="#F0C8D8" opacity="0.6" transform="rotate(18 140 64)"/>
+          </g>
+
+          <g class="gift-sparkles" opacity="0" id="sparkles">
+            <text x="10" y="60" font-size="18" fill="#F0C8D8">✦</text>
+            <text x="185" y="55" font-size="14" fill="#D98EA5">✦</text>
+            <text x="165" y="90" font-size="10" fill="#E8B0C4">✦</text>
+            <text x="30" y="100" font-size="12" fill="#C4607F">✦</text>
+            <text x="100" y="35" font-size="16" fill="#F0C8D8">✦</text>
+          </g>
+
+          <defs>
+            <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7A4060" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#3D1525" stop-opacity="0.4"/>
+            </linearGradient>
+            <linearGradient id="lidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#9B5070" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#5A1E35" stop-opacity="0.3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="gift-text-reveal show" id="gift-text-reveal">
+        <p class="gift-label">There is the gift for you.</p>
+        <p class="gift-label">I HOPE YOU LIKE IT!!</p>
+        <p class="gift-note">✦ Klik gambar kotak diatas yaa.. ✦</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HALAMAN 3: BUKET ===== -->
+  <section id="page-bouquet" class="page-section">
+    <h2 class="section-title">Pink Digital Bouquet for you..</h2>
+    <p class="section-note">I'm sorry because i can't bring the real one :(</p>
+
+    <div class="bouquet-painting-wrap">
+      <img
+        src="images/buket.png"
+        alt="Bouquet mini kiri"
+        class="bouquet-side left"
+        style="mix-blend-mode:multiply;"
+      />
+      <img
+        src="images/buket1.png"
+        alt="Hand bouquet"
+        class="bouquet-painting-frame"
+        style="mix-blend-mode:multiply;"
+      />
+      <img
+        src="images/buket2.png"
+        alt="Bouquet mini kanan"
+        class="bouquet-side right"
+        style="mix-blend-mode:multiply;"
+      />
+    </div>
+
+    <button class="page-next-btn" onclick="triggerVinylTransition()">Next →</button>
+  </section>
+
+  <!-- ===== HALAMAN 4: LAGU ===== -->
+  <section id="page-songs" class="page-section" style="flex-direction:column;">
+    <h2 class="section-title">The Songs That Remind Me of You</h2>
+    <p class="section-note">I always had you in my mind while listening to these songs.</p>
+    <p class="songs-progress" id="songs-progress">1 / 5</p>
+
+    <div class="songs-reveal-area" style="margin-top:1.5rem;">
+
+      <!-- Song 1 -->
+      <div class="song-card-reveal active" data-index="0">
+        <div class="song-card-inner-wrap">
+          <div class="song-album-banner">
+            <img src="images/album1.jpg" alt="Album 1">
+            <div class="song-album-placeholder"></div>
+          </div>
+          <div class="song-music-deco">
+            <span class="music-note mn1">♪</span>
+            <span class="music-note mn2">♫</span>
+            <span class="music-note mn3">♩</span>
+            <span class="music-note mn4">♬</span>
+          </div>
+          <div class="song-info-area">
+            <p class="song-counter">1st Song</p>
+            <h3 class="song-title">Kenangan Manis</h3>
+            <p class="song-artist">by Pamungkas</p>
+            <div class="song-rule"></div>
+            <p class="song-description">Ini jadi salah satu lagu Pop Indonesia favoritku yang selalu mengingatkan aku pada kenangan indah kita. After liburan di Malang, i always listening to this song, to remember our special moments.</p>
+            <a href="https://open.spotify.com/track/1jeE8DM1ZoqpUXqhXJF7Ei?si=3fb782eaeff44888" class="song-link">Listen ♪</a>
+          </div>
+         </div>
+         <div class="song-progress-bar-wrap">
+          <div class="song-progress-bar-fill" style="width:20%"></div>
+        </div>
+      </div>
+      <!-- Song 2 -->
+      <div class="song-card-reveal" data-index="1">
+        <div class="song-card-inner-wrap">
+          <div class="song-album-banner">
+            <img src="images/album2.jpg" alt="Album 2">
+            <div class="song-album-placeholder"></div>
+          </div>
+          <div class="song-music-deco">
+            <span class="music-note mn1">♬</span>
+            <span class="music-note mn2">♪</span>
+            <span class="music-note mn3">♫</span>
+            <span class="music-note mn4">♩</span>
+          </div>
+          <div class="song-info-area">
+            <p class="song-counter">2nd Song</p>
+            <h3 class="song-title">Kota Ini Tak Sama Tanpamu</h3>
+            <p class="song-artist">by Nadhif Basalamah</p>
+            <div class="song-rule"></div>
+            <p class="song-description">Lagu ini selalu menghantuiku saat Study Tour Bandung kala itu. Karena aku mengagumi betapa indahnya Bandung, namun tak sempurna karena kamu tidak ada di sana.</p>
+            <a href="https://open.spotify.com/track/75DnXTAoFiorMrqkPVbjSH?si=94aa68b47c024343" class="song-link">Listen ♪</a>
+          </div>
+        </div>
+        <div class="song-progress-bar-wrap">
+          <div class="song-progress-bar-fill" style="width:40%"></div>
+        </div>
+      </div>
+      <!-- Song 3 -->
+      <div class="song-card-reveal" data-index="2">
+        <div class="song-card-inner-wrap">
+          <div class="song-album-banner">
+            <img src="images/album3.jpg" alt="Album 3">
+            <div class="song-album-placeholder"></div>
+          </div>
+          <div class="song-music-deco">
+            <span class="music-note mn1">♩</span>
+            <span class="music-note mn2">♬</span>
+            <span class="music-note mn3">♪</span>
+            <span class="music-note mn4">♫</span>
+          </div>
+          <div class="song-info-area">
+            <p class="song-counter">3rd Song</p>
+            <h3 class="song-title">Photograph</h3>
+            <p class="song-artist">by Ed Sheeran</p>
+            <div class="song-rule"></div>
+            <p class="song-description">A heartfelt song about capturing moments and cherishing memories. Lagu ini sangat universal dalam membawa kita ke dalam lautan kenangan yang takkan ada habisnya.</p>
+            <a href="https://open.spotify.com/track/1HNkqx9Ahdgi1Ixy2xkKkL?si=7798181de07f47b9" class="song-link">Listen ♪</a>
+          </div>
+        </div>
+        <div class="song-progress-bar-wrap">
+          <div class="song-progress-bar-fill" style="width:60%"></div>
+        </div>
+      </div>
+      <!-- Song 4 -->
+      <div class="song-card-reveal" data-index="3">
+        <div class="song-card-inner-wrap">
+          <div class="song-album-banner">
+            <img src="images/album4.jpg" alt="Album 4">
+            <div class="song-album-placeholder"></div>
+          </div>
+          <div class="song-music-deco">
+            <span class="music-note mn1">♫</span>
+            <span class="music-note mn2">♩</span>
+            <span class="music-note mn3">♬</span>
+            <span class="music-note mn4">♪</span>
+          </div>
+          <div class="song-info-area">
+            <p class="song-counter">4th Song</p>
+            <h3 class="song-title">We Can't Be Friends</h3>
+            <p class="song-artist">by Ariana Grande</p>
+            <div class="song-rule"></div>
+            <p class="song-description">I don't know why I put it, but this song makes me feel that the lyrics are about me and you.</p>
+            <a href="https://open.spotify.com/track/46kspZSY3aKmwQe7O77fCC?si=e560e115c799499e" class="song-link">Listen ♪</a>
+          </div>
+        </div>
+        <div class="song-progress-bar-wrap">
+          <div class="song-progress-bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <!-- Song 5 -->
+      <div class="song-card-reveal" data-index="4">
+        <div class="song-card-inner-wrap">
+          <div class="song-album-banner">
+            <img src="images/album5.jpg" alt="Album 5">
+            <div class="song-album-placeholder"></div>
+          </div>
+          <div class="song-music-deco">
+            <span class="music-note mn1">♪</span>
+            <span class="music-note mn2">♫</span>
+            <span class="music-note mn3">♩</span>
+            <span class="music-note mn4">♬</span>
+          </div>
+          <div class="song-info-area">
+            <p class="song-counter">5th Song</p>
+            <h3 class="song-title">All Too Well</h3>
+            <p class="song-artist">by Taylor Swift</p>
+            <div class="song-rule"></div>
+            <p class="song-description">A nostalgic and emotional song about a past relationship. Ketika aku mengingat kembali moment-moment indah kita, aku selalu mengingatnya dengan sempurna. Especially when it's about you.</p>
+            <a href="https://open.spotify.com/track/1IBhYEvvi02tDVByxIiTh4?si=458830d5a729424e" class="song-link">Listen ♪</a>
+          </div>
+        </div>
+        <div class="song-progress-bar-wrap">
+          <div class="song-progress-bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+
+    </div><!-- end songs-reveal-area -->
+
+    <div class="songs-btn-row">
+      <button class="page-next-btn" style="background:rgba(139,58,90,0.07);padding:.6rem 1.5rem;font-size:14px;" onclick="songsPrev()">← Prev</button>
+      <button class="page-next-btn" onclick="songsNext()">Next →</button>
+    </div>
+
+  </section>
+
+  <!-- ===== HALAMAN 5: MONTASE FOTO ===== -->
+  <section id="page-montage" class="page-section" style="flex-direction:column; background: linear-gradient(160deg, #F8E8F2 0%, #F0D8E8 100%);">
+    <h2 class="section-title" style="color:var(--pink-deep); margin-bottom:.4rem;">Memories of POSDA 25/26</h2>
+    <p class="section-note">Moments that will never be forgotten for all of us</p>
+
+    <div class="montage-scroll">
+
+      <div class="montage-item">
+        <div class="montage-photo-slot">
+          <div class="montage-photo-num">📸</div>
+          <img src="images/posda7.jpg" alt="Foto 1">
+        </div>
+        <div class="montage-caption">
+          <span class="montage-caption-placeholder">✏️ Isi keterangan foto 1 di sini</span>
+        </div>
+      </div>
+
+      <div class="montage-item">
+        <div class="montage-photo-slot">
+          <div class="montage-photo-num">📸</div>
+          <img src="images/posda8.jpg" alt="Foto 2">
+        </div>
+        <div class="montage-caption">
+          <span class="montage-caption-placeholder">✏️ Isi keterangan foto 2 di sini</span>
+        </div>
+      </div>
+
+      <div class="montage-item">
+        <div class="montage-photo-slot">
+          <div class="montage-photo-num">📸</div>
+          <img src="images/posda9.jpg" alt="Foto 3">
+        </div>
+        <div class="montage-caption">
+          <span class="montage-caption-placeholder">✏️ Isi keterangan foto 3 di sini</span>
+        </div>
+      </div>
+
+      <div class="montage-item">
+        <div class="montage-photo-slot">
+          <div class="montage-photo-num">📸</div>
+          <img src="images/posda10.jpg" alt="Foto 4">
+        </div>
+        <div class="montage-caption">
+          <span class="montage-caption-placeholder">✏️ Isi keterangan foto 4 di sini</span>
+        </div>
+      </div>
+
+      <div class="montage-item">
+        <div class="montage-photo-slot">
+          <div class="montage-photo-num">📸</div>
+          <img src="images/posda11.jpg" alt="Foto 5">
+        </div>
+        <div class="montage-caption">
+          <span class="montage-caption-placeholder">✏️ Isi keterangan foto 5 di sini</span>
+        </div>
+      </div>
+
+      <div class="montage-item">
+        <div class="montage-photo-slot">
+          <div class="montage-photo-num">📸</div>
+          <img src="images/posda12.jpg" alt="Foto 6">
+        </div>
+        <div class="montage-caption">
+          <span class="montage-caption-placeholder">✏️ Isi keterangan foto 6 di sini</span>
+        </div>
+      </div>
+
+    </div><!-- end montage-scroll -->
+
+    <button class="page-next-btn" style="margin-top:3rem;" onclick="showPage('page-messages'); initMessages();">Next →</button>
+  </section>
+
+  <!-- ===== HALAMAN 6: PESAN ===== -->
+  <section id="page-messages" class="page-section" style="flex-direction:column;">
+    <h2 class="messages-title">MESSAGE SESSION</h2>
+    <p class="message-intro">There are some things I want to say, if you're willing to read them...</p>
+
+    <div class="message-slider-wrap">
+      <div class="message-slide-track">
+
+        <!-- Pesan 1 -->
+        <div class="message-slide active">
+          <div class="message-card-s">
+            <div class="message-card-inner-s">
+              <div class="message-card-num">— 01</div>
+              <p class="message-text"> Hai, Jelita. Pertama-tama, terima kasih karena telah membaca karya ini sampai akhir. I really appreciate your time and attention. Sebagai teman, terima kasih banyak karena telah memberiku banyak momen indah. Hingga aku sendiri akan menyesal apabila tidak mengabadikannya. Jadi, aku buatkan beberapa karya sederhana ini untuk selalu mengingat bahwa kita pernah ada, melewati banyak hal bersama.
+              </p>
+            </div>
+            <span class="message-seal">✦</span>
+          </div>
+        </div>
+
+        <!-- Pesan 2 -->
+        <div class="message-slide">
+          <div class="message-card-s">
+            <div class="message-card-inner-s">
+              <div class="message-card-num">— 02</div>
+              <p class="message-text">Selain website ini, aku juga menyiapkan sebuah cerita tentang memori-memori kita. Aku tak bisa menyebutnya cerita pendek, karena aku menulisnya terlalu panjang. Dan, aku akan sangat senang apabila kamu membacanya dengan tulus sampai akhir cerita. Alasan aku menulisnya cukup sederhana, yaitu karena aku tak rela jika kisah-kisah kita hilang begitu saja ditelan oleh waktu.
+              </p>
+            </div>
+            <span class="message-seal">✦</span>
+          </div>
+        </div>
+
+        <!-- Pesan 3 -->
+        <div class="message-slide">
+          <div class="message-card-s">
+            <div class="message-card-inner-s">
+              <div class="message-card-num">— 03</div>
+              <p class="message-text">Akhir kata, semoga kamu selalu bahagia dan segala impianmu terwujud. Aku akan selalu mendoakan yang terbaik untukmu. Terima kasih untuk dua tahun yang berharga, dan mohon maaf sebesar-besarnya atas segala kesalahan yang telah kuperbuat.
+              </p>
+            </div>
+            <span class="message-seal">✦</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Nav -->
+      <div class="msg-nav">
+        <button class="msg-arrow" onclick="msgMove(-1)">&#8592;</button>
+        <div style="display:flex;gap:7px;">
+          <div class="msg-dot active" onclick="msgGoTo(0)"></div>
+          <div class="msg-dot" onclick="msgGoTo(1)"></div>
+          <div class="msg-dot" onclick="msgGoTo(2)"></div>
+        </div>
+        <button class="msg-arrow" onclick="msgMove(1)">&#8594;</button>
+      </div>
+
+    </div><!-- end message-slider-wrap -->
+
+    <button class="page-next-btn" style="margin-top:2.5rem;" onclick="showPage('page-closing');">Next →</button>
+  </section>
+
+  <!-- ===== HALAMAN 7: PENUTUP ===== -->
+  <section id="page-closing" class="page-section">
+
+    <div class="closing-subtitle-decor">✦ ✦ ✦</div>
+
+    <h1 class="closing-title">I write something special for you.</h1>
+
+    <div class="closing-message-frame">
+      <p class="closing-msg-text">Aku menulis sendiri sebuah cerita pendek tentang kamu dan kenangan kita bersama. Baca sampai habis yaa!!</p>
+    </div>
+
+    <div class="closing-link-wrap">
+      <span class="closing-link-title">ABOUT YOU</span>
+      <p class="closing-link-desc">I write a short story for you. I hope you enjoy it!</p>
+      <a href="https://ellipsus.com/read/5bW6fj4tRopY95XkYogH5m/for-you?theme=trueValentine" class="closing-link-btn" target="_blank" rel="noopener">
+        Read my short story →
+      </a>
+    </div>
+
+    <p class="closing-ending">
+      Thank you for being there, and congratulations on the next chapter.<br>✦
+    </p>
+
+  </section>
+
+</div><!-- end main-content -->
+
+<script src="script.js"></script>
+</body>
+</html>
