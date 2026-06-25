@@ -102,10 +102,10 @@ var polaroidShown = false;
 
 var POLAROID_DATA = [
   { img: 'images/posda13.jpg', caption: '✦ POSDA 25 ✦', rot: -8,  x: -170, y: -100 },
-  { img: 'images/posda14.jpg', caption: 'will',   rot:  6,  x:  150, y:  -85 },
-  { img: 'images/posda15.jpg', caption: 'always',   rot: -5,  x: -155, y:   90 },
+  { img: 'images/posda14.jpg', caption: 'always',   rot:  6,  x:  150, y:  -85 },
+  { img: 'images/posda15.jpg', caption: 'in our',   rot: -5,  x: -155, y:   90 },
   { img: 'images/posda16.jpg', caption: 'forever',     rot:  10, x:  160, y:  100 },
-  { img: 'images/posda17.jpg', caption: 'in our',          rot: -11, x:   -5, y: -125 },
+  { img: 'images/posda17.jpg', caption: 'will',          rot: -11, x:   -5, y: -125 },
   { img: 'images/posda18.jpg', caption: 'hearts ♡',    rot:   4, x:    5, y:   50 }
 ];
 
