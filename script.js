@@ -101,12 +101,12 @@ window.addEventListener('resize', sliderRender);
 var polaroidShown = false;
 
 var POLAROID_DATA = [
-  { img: 'images/posda1.jpg', caption: '✦ POSDA 25 ✦', rot: -8,  x: -170, y: -100 },
-  { img: 'images/posda2.jpg', caption: 'will',   rot:  6,  x:  150, y:  -85 },
-  { img: 'images/posda3.jpg', caption: 'always',   rot: -5,  x: -155, y:   90 },
-  { img: 'images/posda4.jpg', caption: 'forever',     rot:  10, x:  160, y:  100 },
-  { img: 'images/posda5.jpg', caption: 'in our',          rot: -11, x:   -5, y: -125 },
-  { img: 'images/posda6.jpg', caption: 'hearts ♡',    rot:   4, x:    5, y:   50 }
+  { img: 'images/posda13.jpg', caption: '✦ POSDA 25 ✦', rot: -8,  x: -170, y: -100 },
+  { img: 'images/posda14.jpg', caption: 'will',   rot:  6,  x:  150, y:  -85 },
+  { img: 'images/posda15.jpg', caption: 'always',   rot: -5,  x: -155, y:   90 },
+  { img: 'images/posda16.jpg', caption: 'forever',     rot:  10, x:  160, y:  100 },
+  { img: 'images/posda17.jpg', caption: 'in our',          rot: -11, x:   -5, y: -125 },
+  { img: 'images/posda18.jpg', caption: 'hearts ♡',    rot:   4, x:    5, y:   50 }
 ];
 
 function showPolaroidTransition(callback) {
@@ -230,7 +230,7 @@ function showEnvelopeRainTransition(callback) {
   overlay.classList.add('active', 'fade-in');
   container.innerHTML = '';
 
-  var count = 80;
+  var count = 200;
   var palettes = [
     ['#FDEEF5','#F2D0E2'],['#F5D8E8','#EAC0D4'],['#FFE8F3','#F5C8DC'],
     ['#FFF0F8','#EDD0E4'],['#F8D8EE','#E8B8D4']
@@ -386,7 +386,7 @@ function showFlowerRainTransition(callback) {
   overlay.classList.add('active', 'fade-in');
   container.innerHTML = '';
 
-  var count = 100;
+  var count = 300;
   var W = window.innerWidth || 400;
   var H = window.innerHeight || 700;
 
