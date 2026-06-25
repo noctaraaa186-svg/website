@@ -168,7 +168,7 @@ function showPolaroidTransition(callback) {
     }, 600);
   };
 
-  finishTimer = setTimeout(done, (total - 1) * 350 + 3000);
+  finishTimer = setTimeout(done, (total - 1) * 250 + 5000);
   skipBtn.onclick = done;
   overlay.onclick = done;
 }
@@ -335,7 +335,7 @@ function proceedToGift() {
     giftBox.style.opacity   = '0';
     giftBox.style.transform = 'translateY(36px) scale(0.88)';
     giftBox.style.transition = 'none';
-    if (giftText) { giftText.classList.add('show'); giftText.style.display = 'block'; giftText.style.opacity = '0'; }
+    if (giftText) { giftText.classList.add('show'); giftText.style.display = 'block'; giftText.style.opacity = '1'; }
 
     setTimeout(function() {
       gift.style.transition = 'opacity 0.5s ease';
