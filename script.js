@@ -335,7 +335,7 @@ function proceedToGift() {
     giftBox.style.opacity   = '0';
     giftBox.style.transform = 'translateY(36px) scale(0.88)';
     giftBox.style.transition = 'none';
-    if (giftText) { giftText.classList.add('show'); giftText.style.display = 'block'; giftText.style.opacity = '1'; }
+    if (giftText) { giftText.classList.add('show'); giftText.style.display = 'block'; giftText.style.opacity = '0'; }
 
     setTimeout(function() {
       gift.style.transition = 'opacity 0.5s ease';
