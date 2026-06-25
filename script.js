@@ -230,7 +230,7 @@ function showEnvelopeRainTransition(callback) {
   overlay.classList.add('active', 'fade-in');
   container.innerHTML = '';
 
-  var count = 200;
+  var count = 100;
   var palettes = [
     ['#FDEEF5','#F2D0E2'],['#F5D8E8','#EAC0D4'],['#FFE8F3','#F5C8DC'],
     ['#FFF0F8','#EDD0E4'],['#F8D8EE','#E8B8D4']
@@ -386,7 +386,7 @@ function showFlowerRainTransition(callback) {
   overlay.classList.add('active', 'fade-in');
   container.innerHTML = '';
 
-  var count = 300;
+  var count = 200;
   var W = window.innerWidth || 400;
   var H = window.innerHeight || 700;
 
