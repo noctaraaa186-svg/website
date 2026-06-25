@@ -152,7 +152,7 @@ function showPolaroidTransition(callback) {
       requestAnimationFrame(function() {
         frame.classList.add('appear');
       });
-    }, i * 350);
+    }, i * 500);
   });
 
   var skipBtn = overlay.querySelector('.polaroid-transition-skip');
@@ -168,7 +168,7 @@ function showPolaroidTransition(callback) {
     }, 600);
   };
 
-  finishTimer = setTimeout(done, (total - 1) * 250 + 5000);
+  finishTimer = setTimeout(done, (total - 1) * 500 + 8000);
   skipBtn.onclick = done;
   overlay.onclick = done;
 }
