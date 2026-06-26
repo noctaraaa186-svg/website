@@ -128,8 +128,8 @@ function showPolaroidTransition(callback) {
       frame.style.left = '50%';
       frame.style.top  = '50%';
       // margin negatif setengah ukuran frame (180+28px wide, 140+58px tall)
-      frame.style.marginLeft = (data.x - 95) + 'px';
-      frame.style.marginTop  = (data.y - 87) + 'px';
+      frame.style.marginLeft = (data.x - 85) + 'px';
+      frame.style.marginTop  = (data.y - 78) + 'px';
       frame.style.zIndex = i + 1;
 
       var imgWrap = document.createElement('div');
