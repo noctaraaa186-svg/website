@@ -1539,8 +1539,8 @@ body {
 }
 
 .polaroid-img-wrap {
-  width: 90px;
-  height: 68px;
+  width: 170px;
+  height: 130px;
   background: linear-gradient(135deg, #C4607F, #8B3A5A);
   overflow: hidden;
   display: flex;
@@ -1560,10 +1560,10 @@ body {
 .polaroid-caption {
   text-align: center;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 9px;
+  font-size: 28px;
   font-style: italic;
   color: #8B3A5A;
-  margin-top: 4px;
+  margin-top: 8px;
   line-height: 1.4;
 }
 
